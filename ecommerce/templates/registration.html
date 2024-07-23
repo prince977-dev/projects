@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+<div class="container">
+
+      <div class="row">
+          <div class="col">
+      <img src="{% static 'images/reg.jpg' %}" style="height:100%;width:100%">
+          </div>
+      <div class="col">
+         <form method="post" class="container ">
+  {% csrf_token %}
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label" style="color:white">User Name</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="u">
+
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label" style="color:white">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" name="p">
+  </div>
+    <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label" style="color:black">Confirm Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword2" name="cp">
+  </div>
+    <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label" style="color:black">First Name</label>
+    <input type="text" class="form-control" id="exampleInputPassword3" name="fname">
+  </div>
+    <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label" style="color:black">Last Name</label>
+    <input type="text" class="form-control" id="exampleInputPassword4" name="lname">
+  </div>
+    <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label" style="color:black">E-Mail</label>
+    <input type="email" class="form-control" id="exampleInputPassword5" name="email">
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+      </div>
+
+      </div>
+</div>
+
+{% endblock %}

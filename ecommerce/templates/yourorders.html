@@ -1,0 +1,26 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+<div class="container mt-5 mb-5">
+{% for i in orders %}
+	<div class="row border">
+
+    	<div class="col-5">
+      		<img class="img-fluid" src="{{i.product.p_image.url}}" style="height:200px" alt="">
+		</div>
+    	<div class="col-6">
+			<p class="fw-bold">Product Name : {{i.product.p_name}}</p>
+			<p class="fw-bold">Price : {{i.product.p_price}}</p>
+			<p class="fw-bold">Ordered On : {{i.ordered_date}}</p>
+			<p class="fw-bold">Delivery Status : {{i.delivery_status}}</p>
+		</div>
+
+	</div>
+	{% endfor %}
+
+</div>
+
+{% endblock %}

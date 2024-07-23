@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block content %}
+<div class="container " style="h">
+      <div class="row">
+          <div class="col">
+              <form method="post" class="container" style="width:100px height:100px">
+                  {% csrf_token %}
+                  <div class=" mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Phone No</label>
+                      <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="p">
+                  </div>
+                  <div class="mb-3">
+                      <label for="exampleInputPassword2" class="form-label">Delivery Address</label>
+                      <input type="text" class="form-control" id="exampleInputPassword2" name="a">
+                  </div>
+                   <div class="mb-3">
+                      <label for="exampleInputPassword3" class="form-label">Pincode</label>
+                      <input type="number" class="form-control" id="exampleInputPassword3" name="pin">
+                  </div>
+                  <input type="submit" class="btn btn-secondary">
+              </form>
+          </div>
+      </div>
+    </div>
+{% endblock %}

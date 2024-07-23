@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block content %}
+
+	<div class="row  ">
+		<div class="col-7 " >
+			<div class="container mt-5 pt-5 " >
+				<table class="table table-bordered border-dark">
+					<tr>
+						<th style="color:black;">Cart Items</th>
+					</tr>
+					{% for i in cart %}
+					<tr style="color:black;">
+						<td style="color:black;"><a href="{% url 'shop:productdetails' i.product.id %}" ><img src="{{i.product.p_image.url}}" height="50px" width="100px" ></a> </td>
+						<td style="color:black;">Product Name:{{i.product.p_name}}</td>
+						<td style="color:black;">Product Id:{{i.product.id}}</td>
+						<td style="color:black;">Quantity:{{i.quantity}} <br> Unit Price:{{i.product.p_price}}</td>
+						<td style="color:black;">Subtotal:{{i.subtotal}}</td>
+
+						<td style="color:black;">
+							{% if i.product.p_stock > 0 %}
+							<a href="{% url 'cart:addtocart' i.product.id %}"><i class="fa-solid fa-circle-plus"> </i></a> <br>
+							<a href="{% url 'cart:removecart' i.product.id %}"><i class="fa-solid fa-circle-minus"></i></a> <br>
+							<a href="{% url 'cart:deletcart' i.product.id  %}"><i class="fa-solid fa-trash-can"></i></a>
+							{% else %}
+							    	<a href="{% url 'cart:removecart' i.product.id %}"><i class="fa-solid fa-circle-minus"></i></a> <br>
+							      <a href="#"><i class="fa-solid fa-trash-can"></i></a>
+							{% endif %}
+
+						</td>
+					</tr>
+					{% endfor %}
+				</table>
+			</div>
+		</div>
+		<div class="col-5">
+			<div class="container mt-5 pt-5">
+				<table class="table table-bordered" style="width:50%;">
+					<tr>
+						<th style="color:black;">CheckOut</th>
+					</tr>
+					<tr>
+						<th style="color:black;">Total Amount :{{total}} </th>
+					</tr>
+				</table>
+				<a href="{% url 'cart:placeorder' %}" class="btn  bg-dark " style="color:white">Place Order</a>
+				<a href="{% url 'shop:home' %}" class="btn bg-dark " style="color:white">Continue Shopping</a>
+			</div>
+		</div>
+	</div>
+</section>
+
+{% endblock %}

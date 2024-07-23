@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+               <div class="banner_section layout_padding">
+            <div class="container">
+               <div id="my_slider" class="carousel slide" data-ride="carousel">
+                  <div class="carousel-inner">
+                     <div class="carousel-item active">
+                        <div class="row">
+                           <div class="col-sm-12">
+                              <h1 class="banner_taital">Get Start <br>Your favriot shoping</h1>
+                              <div class="buynow_bt"><a href="#">Buy Now</a></div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="carousel-item">
+                        <div class="row">
+                           <div class="col-sm-12">
+                              <h1 class="banner_taital">Get Start <br>Your favriot shoping</h1>
+                              <div class="buynow_bt"><a href="#">Buy Now</a></div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="carousel-item">
+                        <div class="row">
+                           <div class="col-sm-12">
+                              <h1 class="banner_taital">Get Start <br>Your favriot shoping</h1>
+                              <div class="buynow_bt"><a href="#">Buy Now</a></div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <a class="carousel-control-prev" href="#my_slider" role="button" data-slide="prev">
+                  <i class="fa fa-angle-left"></i>
+                  </a>
+                  <a class="carousel-control-next" href="#my_slider" role="button" data-slide="next">
+                  <i class="fa fa-angle-right"></i>
+                  </a>
+               </div>
+            </div>
+         </div>
+         <!-- banner section end -->
+
+     <div class="container-fluid" >
+         <img src="{{cat.image.url}}" style="height:600px;width:100%">
+     </div>
+<div class="row ">
+   {% for i in pro %}
+   <div class="col-lg-4 col-sm-4 ">
+      <div class="box_main">
+         <h4 class="shirt_text">{{i.p_name}}</h4>
+         <p class="price_text">DESCRIPTION:{{i.p_desc}} </p>
+         <p class="price_text">PRICE:{{i.p_price}} </p>
+          <div style="height:300px" class="tshirt_img border border-2" >
+            <img src="{{i.p_image.url}}" style="height:100%;width:100%">
+         </div>
+         <p class="price_text">AVAILABILITY:{{i.p_stock}} </p>
+
+         <div class="btn_main">
+            <div class="buy_bt"><a href="{% url 'shop:productdetails' i.id %}">View Details</a></div>
+
+         </div>
+      </div>
+   </div>
+{% endfor %}
+</div>
+
+{% endblock %}
